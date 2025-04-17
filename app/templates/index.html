@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        input { margin: 10px; padding: 5px; width: 100px; }
+        button { padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .result { margin-top: 20px; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <form method="POST">
+            <label>Weight (kg):</label><input type="number" name="weight" step="0.1" required><br>
+            <label>Height (cm):</label><input type="number" name="height" step="0.1" required><br>
+            <button type="submit">Calculate</button>
+        </form>
+        {% if bmi %}
+            <div class="result">
+                <p>Your BMI: {{ bmi }}</p>
+                <p>Category: {{ category }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
