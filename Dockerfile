@@ -1,18 +1,10 @@
-# Use official Python image
-FROM python:3.9-slim
+# Use official Nginx image
+FROM nginx:alpine
 
-# Set working directory
-WORKDIR /app
-
-# Copy requirements and install dependencies
-COPY app/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy application code
-COPY app/ .
+# Copy static files to Nginx web root
+COPY src /usr/share/nginx/html
 
 # Expose port
-EXPOSE 5000
+EXPOSE 80
 
-# Command to run the application
-CMD ["python", "main.py"]
+# Nginx runs by default
